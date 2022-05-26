@@ -1,9 +1,13 @@
+/*
+* Class: WriteToFile
+* Creates and writes to file
+* */
+
 import java.io.*;
 
-//can move to readFile and rename readFile to Files
 public class WriteToFile {
 
-    // adding patients
+// adding patients
     public int writeToPatients(String fileName, Patient patient) {
         int error;
 
@@ -32,7 +36,7 @@ public class WriteToFile {
         return error;
     }
 
-    // adding services
+// adding services
     public int writeToServices(String fileName, Service service) {
         int error;
 
@@ -55,7 +59,7 @@ public class WriteToFile {
         return error;
     }
 
-    // adding laboratory requests
+// adding laboratory requests
     public int writeToLabRequests(String fileName, Request request) {
         int error;
 

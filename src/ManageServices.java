@@ -1,3 +1,12 @@
+/*
+ * Class: ManageServices
+ * Manages Services offered such as
+ *   adding a new service,
+ *   searching for a service,
+ *   deleting a service,
+ *   and editing a service.
+ * */
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -34,6 +43,10 @@ public class ManageServices {
         }
     }
 
+/*
+* adds a new service
+* accepts parameter int type for editService
+* */
     public void addService(int type) {
         Scanner scanner = new Scanner(System.in);
         String fileName = "services.txt";
@@ -89,6 +102,7 @@ public class ManageServices {
         } while(!input.equals("Y") && !input.equals("N"));
     }
 
+//    searches for a service
     public void searchService() {
         Scanner scanner = new Scanner(System.in);
 
@@ -131,6 +145,7 @@ public class ManageServices {
         }
     }
 
+//    deletes a service
     public void deleteService() {
         Scanner scanner = new Scanner(System.in);
 
@@ -174,6 +189,7 @@ public class ManageServices {
         }
     }
 
+//    edit a service
     public void editService() {
         Scanner scanner = new Scanner(System.in);
         String input;
@@ -203,6 +219,11 @@ public class ManageServices {
         } while(!input.equals("Y") && !input.equals("N"));
     }
 
+/*
+* searches services.txt for methods:
+*   searchService(), deleteService(), and editService()
+* returns the line number needed
+* */
     public int search() {
         Scanner scanner = new Scanner(System.in);
 
@@ -327,6 +348,13 @@ public class ManageServices {
         return line;
     }
 
+/*
+* deletes a service for methods:
+*   deleteService() and editService()
+* accepts parameters:
+*   int type for deleteService() and editService()
+*   int line for which line will be deleted
+* */
     public void delete(int type, int line) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Please state reason for deletion: ");
@@ -368,7 +396,7 @@ public class ManageServices {
         }
     }
 
-    // sort array by code
+// sort array by code
     public static String[][] sortArray(String[][] data) {
         int nonNull = 0;
         for(int i = 0; i < data[0].length; i++) {

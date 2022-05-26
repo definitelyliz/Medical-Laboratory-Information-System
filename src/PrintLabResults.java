@@ -1,3 +1,8 @@
+/*
+ * Class: PrintLabResults
+ * Prints requested laboratory results
+ * */
+
 import com.itextpdf.io.image.ImageData;
 import com.itextpdf.io.image.ImageDataFactory;
 

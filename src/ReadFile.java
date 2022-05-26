@@ -1,3 +1,8 @@
+/*
+* Class: ReadFile
+* Reads needed files and stores into a 2d array
+* */
+
 import java.io.*;
 import java.util.Scanner;
 
@@ -7,7 +12,7 @@ public class ReadFile {
     String[][] tempReq = new String[256][11];
     String UID;
 
-    //getting all lines from patients file
+//getting all lines from patients file
     public int readPatients(String fileName) {
         int error;
         int counter = 0;
@@ -43,7 +48,7 @@ public class ReadFile {
         return error;
     }
 
-    //getting all lines from services file
+//getting all lines from services file
     public int readServices(String fileName) {
         int error;
         int counter = 0;
@@ -78,7 +83,7 @@ public class ReadFile {
         return error;
     }
 
-    //getting all lines from requests file
+//getting all lines from requests file
     public int readRequests(String fileName) {
         int error;
         int counter = 0;
@@ -114,7 +119,7 @@ public class ReadFile {
         return error;
     }
 
-    //reading UID for generateUID
+//reading UID for generateUID
     public int readUID(String fileName) {
         int isFirst;
         String line;
@@ -137,7 +142,7 @@ public class ReadFile {
         return isFirst;
     }
 
-    // checks patient's UID if it exists - Laboratory Requests
+// checks patient's UID if it exists - Laboratory Requests
     public int checkUID(String fileName, String UID) {
         int exists = 0;
         try {
@@ -155,7 +160,7 @@ public class ReadFile {
         return exists;
     }
 
-    // checks if service code exists - manage services
+// checks if service code exists - manage services
     public int checkCode(String fileName, String code) {
         int exists = 0;
         try {

@@ -1,3 +1,12 @@
+/*
+* Class: ManagePatientRecords
+* Manages Patient Records such as
+*   adding a new patient record,
+*   searching for a patient record,
+*   deleting a patient record,
+*   and editing a patient record.
+* */
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -38,6 +47,7 @@ public class ManagePatientRecords {
         }
     }
 
+//    generates Patient UID
     public String generateUID() {
         String[] tempUID = new String[7];
         tempUID[0] = "P";
@@ -122,6 +132,7 @@ public class ManagePatientRecords {
 
     }
 
+//    adds a new patient record
     public void addNewPatient() {
         Scanner scanner = new Scanner(System.in);
 
@@ -193,6 +204,7 @@ public class ManagePatientRecords {
 
     }
 
+//    searches for a patient record
     public void searchPatientRecord() {
         Scanner scanner = new Scanner(System.in);
 
@@ -324,6 +336,7 @@ public class ManagePatientRecords {
         }
     }
 
+//    deletes a patient record
     public void deletePatientRecord() {
         Scanner scanner = new Scanner(System.in);
 
@@ -396,6 +409,7 @@ public class ManagePatientRecords {
         }
     }
 
+//    edits a patients address or phone number
     public void editPatientRecord() {
         Scanner scanner = new Scanner(System.in);
 
@@ -501,6 +515,11 @@ public class ManagePatientRecords {
         } while(!input.equals("Y") && !input.equals("N"));
     }
 
+/*
+* searches Patients.txt for methods:
+*   searchPatientRecord(), deletePatientRecord(), and editPatientRecord()
+* returns the line number needed
+* */
     public int searchRecord() {
         Scanner scanner = new Scanner(System.in);
 
@@ -650,7 +669,7 @@ public class ManagePatientRecords {
         return line;
     }
 
-    // sort array by UID
+// sort array by UID
     public static String[][] sortArray(String[][] data) {
         int nonNull = 0;
         for(int i = 0; i < data[0].length; i++) {
@@ -679,7 +698,7 @@ public class ManagePatientRecords {
         return newData;
     }
 
-    // sort array by date
+// sort array by date
     public static String[][] sortDate(String[][] data) {
         int nonNull = 0;
         for(int i = 0; i < data[0].length; i++) {

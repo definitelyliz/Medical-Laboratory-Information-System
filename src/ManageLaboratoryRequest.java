@@ -1,3 +1,12 @@
+/*
+ * Class: ManageLaboratoryRequest
+ * Manages Laboratory Requests such as
+ *   adding a new laboratory request,
+ *   searching for a laboratory request,
+ *   deleting a laboratory request,
+ *   and editing a laboratory request.
+ * */
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -33,6 +42,7 @@ public class ManageLaboratoryRequest {
 
     }
 
+//    generates Request UID
     public String generateUID(String code) {
         String[] tempUID = new String[8];
 
@@ -119,6 +129,7 @@ public class ManageLaboratoryRequest {
         return String.join("", code, str, newUID);
     }
 
+//    adds a new laboratory request
     public void addNewLaboratoryRequest() {
         Scanner scanner = new Scanner(System.in);
 
@@ -225,6 +236,12 @@ public class ManageLaboratoryRequest {
         } while(input.equalsIgnoreCase("Y") || input.equalsIgnoreCase("N"));
     }
 
+/*
+* searches for a laboratory request in file <CODE>_Requests.txt
+* accepts parameter int type for methods:
+*   deleteLaboratoryRequest() and editLaboratoryRequest()
+* returns String[] ret for deleteLaboratoryRequest() and editLaboratoryRequest()
+* */
     public String[] searchLaboratoryRequest(int type) {
         Scanner scanner = new Scanner(System.in);
         String[] ret = new String[3];
@@ -462,6 +479,7 @@ public class ManageLaboratoryRequest {
         return ret;
     }
 
+//    deletes a laboratory request
     public void deleteLaboratoryRequest() {
         Scanner scanner = new Scanner(System.in);
 
@@ -534,6 +552,7 @@ public class ManageLaboratoryRequest {
         }
     }
 
+//    edits the results of a laboratory request
     public void editLaboratoryRequest() {
         Scanner scanner = new Scanner(System.in);
 
@@ -619,7 +638,7 @@ public class ManageLaboratoryRequest {
         }
     }
 
-    // sort array by UID
+// sort array by UID
     public static String[][] sortArray(String[][] data) {
         int nonNull = 0;
         for(int i = 0; i < data[0].length; i++) {
@@ -647,7 +666,7 @@ public class ManageLaboratoryRequest {
         return newData;
     }
 
-    // sort array by date
+// sort array by date
     public static String[][] sortDate(String[][] data) {
         int nonNull = 0;
         for(int i = 0; i < data[0].length; i++) {
