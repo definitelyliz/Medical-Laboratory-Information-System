@@ -15,13 +15,14 @@ import java.nio.file.Paths;
 import java.util.*;
 
 public class ManageServices {
-    ArrayList<Service> services = new ArrayList<>();
+    private ArrayList<Service> services;
 
-    MainMenu mm = new MainMenu();
-    ReadFile rf = new ReadFile();
-    WriteToFile wtf = new WriteToFile();
+    private MainMenu mm;
+    private ReadFile rf;
+    private WriteToFile wtf;
 
     public void manageServices() {
+        mm = new MainMenu();
         Scanner scanner = new Scanner(System.in);
         System.out.println("Manage Patient Records");
         System.out.println("[1] Add New Service");
@@ -48,6 +49,10 @@ public class ManageServices {
 * accepts parameter int type for editService
 * */
     public void addService(int type) {
+        mm = new MainMenu();
+        rf = new ReadFile();
+        wtf = new WriteToFile();
+        services = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
         String fileName = "services.txt";
 
@@ -104,6 +109,7 @@ public class ManageServices {
 
 //    searches for a service
     public void searchService() {
+        mm = new MainMenu();
         Scanner scanner = new Scanner(System.in);
 
         int line=search();
@@ -147,6 +153,7 @@ public class ManageServices {
 
 //    deletes a service
     public void deleteService() {
+        mm = new MainMenu();
         Scanner scanner = new Scanner(System.in);
 
         int line = search();
@@ -191,6 +198,7 @@ public class ManageServices {
 
 //    edit a service
     public void editService() {
+        mm = new MainMenu();
         Scanner scanner = new Scanner(System.in);
         String input;
 
@@ -225,6 +233,7 @@ public class ManageServices {
 * returns the line number needed
 * */
     public int search() {
+        rf = new ReadFile();
         Scanner scanner = new Scanner(System.in);
 
         int scan;

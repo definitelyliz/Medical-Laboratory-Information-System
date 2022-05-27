@@ -15,12 +15,16 @@ import java.nio.file.Paths;
 import java.util.*;
 
 public class ManageLaboratoryRequest {
-    ArrayList<Request> requests = new ArrayList<>();
-    WriteToFile wtf = new WriteToFile();
-    MainMenu mm = new MainMenu();
-    ReadFile rf = new ReadFile();
+    private ArrayList<Request> requests;
+
+    private WriteToFile wtf;
+    private MainMenu mm;
+    private ReadFile rf;
+
+    private final String FILE_NAME = "_Requests.txt";
 
     public void manageLaboratoryRequest() {
+        mm = new MainMenu();
         Scanner scanner = new Scanner(System.in);
         System.out.println("Manage Laboratory Request");
         System.out.println("[1] Add New Laboratory Request");
@@ -44,6 +48,7 @@ public class ManageLaboratoryRequest {
 
 //    generates Request UID
     public String generateUID(String code) {
+        rf = new ReadFile();
         String[] tempUID = new String[8];
 
         int Y = Calendar.getInstance().get(Calendar.YEAR);
@@ -81,7 +86,7 @@ public class ManageLaboratoryRequest {
         }
 
         //GET REQUESTS FROM <CODE>_REQUESTS.TXT
-        String fileName = code + "_Requests.txt";
+        String fileName = code + FILE_NAME;
         int isFirst = rf.readUID(fileName);
         String prevUID = rf.getUID();
 
@@ -131,6 +136,10 @@ public class ManageLaboratoryRequest {
 
 //    adds a new laboratory request
     public void addNewLaboratoryRequest() {
+        rf = new ReadFile();
+        mm = new MainMenu();
+        wtf = new WriteToFile();
+        requests = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Enter patient's UID: ");
@@ -216,7 +225,7 @@ public class ManageLaboratoryRequest {
         Request request = new Request(requestUID, UID, requestDate, requestTime, result);
         requests.add(request);
 
-        String fileName = code+"_Requests.txt";
+        String fileName = code + FILE_NAME;
         int error = wtf.writeToLabRequests(fileName, request);
         if(error==1)
             addNewLaboratoryRequest();
@@ -243,6 +252,8 @@ public class ManageLaboratoryRequest {
 * returns String[] ret for deleteLaboratoryRequest() and editLaboratoryRequest()
 * */
     public String[] searchLaboratoryRequest(int type) {
+        rf = new ReadFile();
+        mm = new MainMenu();
         Scanner scanner = new Scanner(System.in);
         String[] ret = new String[3];
         String[] retPrint = new String[4];
@@ -275,7 +286,7 @@ public class ManageLaboratoryRequest {
             System.out.print("Enter request's UID: ");
             UID = scanner.next().toUpperCase();
             code = UID.substring(0, 3);
-            fileName = code + "_Requests.txt";
+            fileName = code + FILE_NAME;
             error = rf.readRequests(fileName);
             if(error==1) {
                 if(type==0)
@@ -357,7 +368,7 @@ public class ManageLaboratoryRequest {
             int countRequests=0;
             for (int i = 0; i < countServices; i++) {
                 code = services[i][0];
-                fileName = services[i][0] + "_Requests.txt";
+                fileName = services[i][0] + FILE_NAME;
                 error = rf.readRequests(fileName);
                 if(error==-1)
                     continue;
@@ -398,7 +409,7 @@ public class ManageLaboratoryRequest {
                     }
                 }
                 String serviceCode = UID.substring(0, 3);
-                fileName = serviceCode + "_Requests.txt";
+                fileName = serviceCode + FILE_NAME;
                 rf.readRequests(fileName);
                 String[][] requests = rf.getTempReq();
 
@@ -481,6 +492,7 @@ public class ManageLaboratoryRequest {
 
 //    deletes a laboratory request
     public void deleteLaboratoryRequest() {
+        mm = new MainMenu();
         Scanner scanner = new Scanner(System.in);
 
         String[] ret = searchLaboratoryRequest(1);
@@ -554,6 +566,8 @@ public class ManageLaboratoryRequest {
 
 //    edits the results of a laboratory request
     public void editLaboratoryRequest() {
+        rf = new ReadFile();
+        mm = new MainMenu();
         Scanner scanner = new Scanner(System.in);
 
         String[] ret = searchLaboratoryRequest(1);

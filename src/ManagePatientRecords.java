@@ -18,14 +18,15 @@ import java.time.temporal.ChronoUnit;
 import java.util.*;
 
 public class ManagePatientRecords {
-    ArrayList<Patient> patients = new ArrayList<>();
+    private ArrayList<Patient> patients;
 
-    ManageLaboratoryRequest mlr = new ManageLaboratoryRequest();
-    WriteToFile wtf = new WriteToFile();
-    ReadFile rf = new ReadFile();
-    MainMenu mm = new MainMenu();
+    private ManageLaboratoryRequest mlr;
+    private WriteToFile wtf;
+    private ReadFile rf;
+    private MainMenu mm;
 
     public void managePatientRecords() {
+        mm = new MainMenu();
         Scanner scanner = new Scanner(System.in);
         System.out.println("Manage Patient Records");
         System.out.println("[1] Add New Patient");
@@ -49,6 +50,8 @@ public class ManagePatientRecords {
 
 //    generates Patient UID
     public String generateUID() {
+        rf = new ReadFile();
+
         String[] tempUID = new String[7];
         tempUID[0] = "P";
 
@@ -134,6 +137,9 @@ public class ManagePatientRecords {
 
 //    adds a new patient record
     public void addNewPatient() {
+        patients = new ArrayList<>();
+        wtf = new WriteToFile();
+        mm = new MainMenu();
         Scanner scanner = new Scanner(System.in);
 
         String patientCodeIdentifier = generateUID();
@@ -206,6 +212,9 @@ public class ManagePatientRecords {
 
 //    searches for a patient record
     public void searchPatientRecord() {
+        mlr = new ManageLaboratoryRequest();
+        rf = new ReadFile();
+        mm = new MainMenu();
         Scanner scanner = new Scanner(System.in);
 
         int line=searchRecord();
@@ -338,6 +347,7 @@ public class ManagePatientRecords {
 
 //    deletes a patient record
     public void deletePatientRecord() {
+        mm = new MainMenu();
         Scanner scanner = new Scanner(System.in);
 
         int line=searchRecord();
@@ -411,6 +421,7 @@ public class ManagePatientRecords {
 
 //    edits a patients address or phone number
     public void editPatientRecord() {
+        mm = new MainMenu();
         Scanner scanner = new Scanner(System.in);
 
         int line=searchRecord();
@@ -521,6 +532,7 @@ public class ManagePatientRecords {
 * returns the line number needed
 * */
     public int searchRecord() {
+        rf = new ReadFile();
         Scanner scanner = new Scanner(System.in);
 
         int scan;
