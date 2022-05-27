@@ -26,6 +26,7 @@ public class ManageLaboratoryRequest {
     public void manageLaboratoryRequest() {
         mm = new MainMenu();
         Scanner scanner = new Scanner(System.in);
+
         System.out.println("Manage Laboratory Request");
         System.out.println("[1] Add New Laboratory Request");
         System.out.println("[2] Search Laboratory Request");
@@ -49,6 +50,7 @@ public class ManageLaboratoryRequest {
 //    generates Request UID
     public String generateUID(String code) {
         rf = new ReadFile();
+
         String[] tempUID = new String[8];
 
         int Y = Calendar.getInstance().get(Calendar.YEAR);
@@ -255,6 +257,7 @@ public class ManageLaboratoryRequest {
         rf = new ReadFile();
         mm = new MainMenu();
         Scanner scanner = new Scanner(System.in);
+
         String[] ret = new String[3];
         String[] retPrint = new String[4];
 

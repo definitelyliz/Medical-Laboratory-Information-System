@@ -28,6 +28,7 @@ public class ManagePatientRecords {
     public void managePatientRecords() {
         mm = new MainMenu();
         Scanner scanner = new Scanner(System.in);
+
         System.out.println("Manage Patient Records");
         System.out.println("[1] Add New Patient");
         System.out.println("[2] Edit Patient Record");

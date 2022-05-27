@@ -7,10 +7,10 @@ import java.io.*;
 import java.util.Scanner;
 
 public class ReadFile {
-    String[][] tempSearch = new String[256][11];
-    String[][] tempServ = new String[256][11];
-    String[][] tempReq = new String[256][11];
-    String UID;
+    private String[][] tempSearch = new String[256][11];
+    private String[][] tempServ = new String[256][11];
+    private String[][] tempReq = new String[256][11];
+    private String UID;
 
 //getting all lines from patients file
     public int readPatients(String fileName) {

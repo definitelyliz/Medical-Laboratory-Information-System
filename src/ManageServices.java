@@ -24,6 +24,7 @@ public class ManageServices {
     public void manageServices() {
         mm = new MainMenu();
         Scanner scanner = new Scanner(System.in);
+
         System.out.println("Manage Patient Records");
         System.out.println("[1] Add New Service");
         System.out.println("[2] Search Service");
@@ -54,8 +55,8 @@ public class ManageServices {
         wtf = new WriteToFile();
         services = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
-        String fileName = "services.txt";
 
+        String fileName = "services.txt";
         System.out.print("Enter unique 3-code Service Code: ");
         String code = scanner.next().toUpperCase();
         scanner.nextLine();
@@ -200,8 +201,8 @@ public class ManageServices {
     public void editService() {
         mm = new MainMenu();
         Scanner scanner = new Scanner(System.in);
-        String input;
 
+        String input;
         System.out.print("""
                 The services cannot be edited.
                 If you would like to edit an existing service, the service will be first deleted from the file, and a new service will be created.\s
@@ -366,6 +367,7 @@ public class ManageServices {
 * */
     public void delete(int type, int line) {
         Scanner scanner = new Scanner(System.in);
+
         System.out.print("Please state reason for deletion: ");
         String reason = scanner.nextLine();
         String D = "D;";
